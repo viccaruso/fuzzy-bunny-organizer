@@ -10,28 +10,31 @@
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/home.css">
-    <title>Fuzzy Bunnies: Families</title>
+    <title>Fuzzy Bunnies: Add Family</title>
 </head>
 
 <body>
     <header>
         <div class="gutter-right logo">
             <a href="../families" >See all families</a>
-            <a href="../family-add" >Add a family</a>
             <a href="../create" >Add a bunny</a>
         </div>
     </header>    
     <button id="logout">Logout</button>
-    <main>
-        <h3>Here are the loving families with their fuzzy bunnies</h3>
-        <div class="families-container">
-
-        </div>
+    <main class="add-family-main">
+        <h2>Add a new family</h2>
+        <form class="new-family-form">
+            <label>
+                Family's name
+                <input name="family-name" />
+            </label>
+            <button>Submit</button>
+        </form>
     </main>
     <footer>
         <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
     </footer>
-    <script type="module" src="./families.js"></script>
+    <script type="module" src="./add-family.js"></script>
 </body>
 
 </html>
