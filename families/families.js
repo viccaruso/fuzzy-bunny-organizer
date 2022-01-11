@@ -17,7 +17,6 @@ logoutButton.addEventListener('click', () => {
 async function displayFamilies() {
     // Fetch families from supabase
     const families = await getFamilies();
-    console.log(families);
     // clear out the familiesEl
     while (familiesEl.firstChild) {
         familiesEl.firstChild.remove();
