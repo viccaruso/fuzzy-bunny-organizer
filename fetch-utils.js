@@ -13,7 +13,7 @@ export async function getFamilies() {
         .from('loving_families')
         .select(`*, fuzzy_bunnies (*)`); // selecting all (*) from 'loving_families' and selecting all (*) from fuzzy_bunnies
 
-    return checkError(response);    
+    return checkError(response);
 }
 
 export async function deleteBunny(id) {
@@ -23,7 +23,7 @@ export async function deleteBunny(id) {
         .delete()
         .match({ id: id });
 
-    return checkError(response);    
+    return checkError(response);
 }
 
 
@@ -35,7 +35,17 @@ export async function createBunny(bunny) {
             name: bunny.name,
             family_id: bunny.family_id
         }]);
-    return checkError(response);    
+    return checkError(response);
+}
+
+export async function createFamily(name) {
+    const response = await client
+        .from('loving_families')
+        .insert([{
+            name: name
+        }]);
+
+    return checkError(response);
 }
 
 
@@ -43,7 +53,7 @@ export async function createBunny(bunny) {
 export async function checkAuth() {
     const user = await getUser();
 
-    if (!user) location.replace('../'); 
+    if (!user) location.replace('../');
 }
 
 export async function redirectIfLoggedIn() {
@@ -52,13 +62,13 @@ export async function redirectIfLoggedIn() {
     }
 }
 
-export async function signupUser(email, password){
+export async function signupUser(email, password) {
     const response = await client.auth.signUp({ email, password });
-    
+
     return response.user;
 }
 
-export async function signInUser(email, password){
+export async function signInUser(email, password) {
     const response = await client.auth.signIn({ email, password });
 
     return response.user;
